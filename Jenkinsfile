@@ -10,10 +10,12 @@ pipeline {
     }
 
     stage('Build Docker Image') {
-      steps {
-        sh 'docker build -t my-django-app:latest .'
-      }
-    }
+  steps {
+    // Use the Dockerfile and context inside eece430-4-5/
+    sh 'docker build -f eece430-4-5/Dockerfile -t my-django-app:latest eece430-4-5'
+  }
+}
+
 
     stage('Stop Old Container') {
       steps {
