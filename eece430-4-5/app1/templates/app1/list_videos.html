@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2>Video List</h2>
+    <p><a href="{% url 'add_video' %}">➕ Add New Video</a></p>
+    {% if videos %}
+      <ul>
+        {% for v in videos %}
+          <li>
+            <strong>{{ v.MovieTitle }}</strong> ({{ v.ReleaseYear }}) – {{ v.MovieGenre }}<br>
+            Cast: {{ v.Actor1Name }}{% if v.Actor2Name %}, {{ v.Actor2Name }}{% endif %} | Dir: {{ v.DirectorName }}<br>
+            <a href="{% url 'update_video' v.MovieID %}">Edit</a> |
+            <a href="{% url 'delete_video' v.MovieID %}">Delete</a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No videos yet.</p>
+    {% endif %}
+  </body>
+</html>

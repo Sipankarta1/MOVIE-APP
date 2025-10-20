@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2>Update Video</h2>
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Update</button>
+    </form>
+    <p><a href="{% url 'list_videos' %}">Back</a></p>
+  </body>
+</html>
