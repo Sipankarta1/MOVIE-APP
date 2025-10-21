@@ -22,11 +22,16 @@ pipeline {
           echo "Repo tree (top-level):"
           ls -la
 
-          echo "Check eece430 dir:"
-          ls -la eece430 || { echo "eece430/ not found!"; exit 1; }
+          echo "Check eece430-4-5
+ dir:"
+          ls -la eece430-4-5
+ || { echo "eece430-4-5
+/ not found!"; exit 1; }
 
           echo "Show Dockerfile path:"
-          ls -la eece430/Dockerfile || { echo "Dockerfile not found at eece430/Dockerfile"; exit 1; }
+          ls -la eece430-4-5
+/Dockerfile || { echo "Dockerfile not found at eece430-4-5
+/Dockerfile"; exit 1; }
         '''
       }
     }
@@ -34,8 +39,10 @@ pipeline {
     stage('Build Docker Image') {
       steps {
         sh '''
-          # Build using Dockerfile inside eece430/ and context = eece430/
-          docker build -f eece430/Dockerfile -t my-django-app:latest eece430
+          # Build using Dockerfile inside eece430/ and context = eece430-4-5
+/
+          docker build -f eece430/Dockerfile -t my-django-app:latest eece430-4-5
+
         '''
       }
     }
